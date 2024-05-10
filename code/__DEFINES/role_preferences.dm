@@ -38,6 +38,8 @@
 #define ROLE_BLOODSUCKER 			"bloodsucker"
 //Hyper
 #define ROLE_LEWD_TRAITOR			"lewd traitor"
+//Gain
+#define ROLE_WENDIGO				"wendigo"
 
 //Missing assignment means it's not a gamemode specific role, IT'S NOT A BUG OR ERROR.
 //The gamemode specific ones are just so the gamemodes can query whether a player is old enough
