@@ -20,7 +20,7 @@
 			var/mob/living/carbon/wendigo/A = C
 			A.metabolize_hunger()
 
-/obj/item/organ/eyes/wendigo
+/obj/item/organ/eyes/night_vision/wendigo
 	name = "unnatural eyes"
 	sight_flags = SEE_MOBS
 	icon_state = "burning_eyes"
@@ -43,6 +43,7 @@
 
 /datum/action/item_action/organ_action/wendigo_stomach/Trigger()
 	. = ..()
+	if(target != /obj/item/organ/stomach/wendigo)
 	if(!. || devouring)
 		return
 	if(!user.pulling || !ismob(user.pulling))
@@ -54,10 +55,14 @@
 	var/mob/living/soulfood = user.pulling //Nourishing!
 	var/devourtime = 50
 	devouring = 1
-	if(iscarbon(soulfood))
-		if(soulfood.mind)
+	if(ishuman(soulfood))
+		devourtime += 50
+	if(soulfood.client || soulfood.key)
+		devourtime += 50
 
-	if(do_mob(owner, soulfood, devourtime))
+	if(!do_mob(owner, soulfood, devourtime))
+		to_chat(user, "<span class = 'danger'>You must stay still to consume \the [soulfood]'s soul!</span>")
+		target
 
 /datum/mood_event/ate_soul
 	description = "Eating souls feels nourishing on so many unexpected levels!"
