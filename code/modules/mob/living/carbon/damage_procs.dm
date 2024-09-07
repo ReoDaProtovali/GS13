@@ -43,6 +43,8 @@
 		//citadel code
 		if(AROUSAL)
 			adjustArousalLoss(damage * hit_percent)
+		if(FAT)
+			applyFatnessDamage(damage * hit_percent)
 	return TRUE
 
 
@@ -91,7 +93,10 @@
 		if(amount > 0)
 			blood_volume -= 3 * amount		//5x was too much, this is punishing enough.
 		else
-			blood_volume -= amount
+			if(blood_volume >= BLOOD_VOLUME_MAXIMUM) //if their blood level is already at safe amounts, turn the chemical into fatness rather than blood
+				adjust_fatness(-amount, FATTENING_TYPE_CHEM)
+			else
+				blood_volume -= amount
 	return ..()
 
 /mob/living/carbon/getStaminaLoss()
@@ -115,6 +120,12 @@
 	if(!diff)
 		return
 	adjustStaminaLoss(diff, updating, forced)
+
+
+/mob/living/carbon/applyFatnessDamage(amount)
+	var/fat_to_add = ((amount * CONFIG_GET(number/damage_multiplier)) * FAT_DAMAGE_TO_FATNESS)
+	adjust_fatness(fat_to_add, FATTENING_TYPE_WEAPON)
+	return fat_to_add
 
 
 /** adjustOrganLoss

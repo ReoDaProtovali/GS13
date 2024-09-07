@@ -204,6 +204,9 @@
 #define TRAIT_WEAKLEGS			"weak_legs"
 #define TRAIT_STRONGLEGS		"strong_legs"
 #define TRAIT_WEB_WEAVER		"web_weaving"
+#define TRAIT_METAL_CRUNCHER 	"metal_cruncher"
+#define TRAIT_WATER_SPONGE 		"water_sponge"
+#define TRAIT_FATROUSAL         "fatrousal"
 
 //Hyper
 #define TRAIT_MACROPHILE		"macrophile" //likes the big
@@ -220,7 +223,14 @@
 //GS13
 #define TRAIT_WEIGHT_LOSS_IMMUNE "weight_loss_immune"
 #define TRAIT_UNIVERSAL_GAINER "universal_gainer"
-
+#define TRAIT_NO_MOVE "no_move"
+#define TRAIT_NO_JUMPSUIT "no_jumpsuit"
+#define TRAIT_NO_MISC "no_misc"
+#define TRAIT_NO_BACKPACK "no_backpack"
+#define TRAIT_NO_BUCKLE "no_buckle"
+#define TRAIT_DOCILE "docile"
+#define TRAIT_LIVESTOCK "livestock"
+#define TRAIT_NO_FAT_SLOWDOWN "no_fat_slowdown"
 
 // common trait sources
 #define TRAIT_GENERIC "generic"
@@ -282,3 +292,5 @@
 #define NUKEOP_TRAIT "nuke-op"
 #define MEGAFAUNA_TRAIT "megafauna"
 #define DEATHSQUAD_TRAIT "deathsquad"
+#define HELPLESSNESS_TRAIT "helplessness"
+

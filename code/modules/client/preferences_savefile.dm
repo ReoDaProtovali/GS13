@@ -152,12 +152,29 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["weight_gain_items"] >> weight_gain_items
 	S["weight_gain_magic"] >> weight_gain_magic
 	S["weight_gain_viruses"] >> weight_gain_viruses
+	S["weight_gain_nanites"] >> weight_gain_nanites
 	S["weight_gain_weapons"] >> weight_gain_weapons
 	S["weight_gain_extreme"] >> weight_gain_extreme
 	S["wg_rate"] >> wg_rate
 	S["wl_rate"] >> wl_rate
 	S["noncon_weight_gain"] >> noncon_weight_gain
+	S["bot_feeding"] >> bot_feeding
 	S["max_weight"] >> max_weight 
+	S["helplessness_no_movement"] >> helplessness_no_movement
+	S["helplessness_clumsy"] >> helplessness_clumsy
+	S["helplessness_nearsighted"] >> helplessness_nearsighted
+	S["helplessness_hidden_face"] >> helplessness_hidden_face
+	S["helplessness_mute"] >> helplessness_mute
+	S["helplessness_immobile_arms"] >> helplessness_immobile_arms
+	S["helplessness_clothing_jumpsuit"] >> helplessness_clothing_jumpsuit
+	S["helplessness_clothing_misc"] >> helplessness_clothing_misc
+	S["helplessness_clothing_back"] >> helplessness_clothing_back
+	S["helplessness_no_buckle"] >> helplessness_no_buckle
+	S["stuckage"] >> stuckage
+	S["chair_breakage"] >> chair_breakage
+	S["fatness_vulnerable"] >> fatness_vulnerable 
+	S["extreme_fatness_vulnerable"] >> extreme_fatness_vulnerable
+	S["blueberry_inflation"] >> blueberry_inflation
 
 
 	//try to fix any outdated data if necessfary
@@ -291,14 +308,30 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["weight_gain_items"], weight_gain_items)
 	WRITE_FILE(S["weight_gain_magic"], weight_gain_magic)
 	WRITE_FILE(S["weight_gain_viruses"], weight_gain_viruses)
+	WRITE_FILE(S["weight_gain_nanites"], weight_gain_nanites)
 	WRITE_FILE(S["weight_gain_chems"], weight_gain_chems)
 	WRITE_FILE(S["weight_gain_weapons"], weight_gain_weapons)
 	WRITE_FILE(S["weight_gain_extreme"], weight_gain_extreme)
 	WRITE_FILE(S["wg_rate"], wg_rate)
 	WRITE_FILE(S["wl_rate"], wl_rate)
 	WRITE_FILE(S["noncon_weight_gain"], noncon_weight_gain)
+	WRITE_FILE(S["bot_feeding"], bot_feeding)
 	WRITE_FILE(S["max_weight"], max_weight)
-
+	WRITE_FILE(S["helplessness_no_movement"], helplessness_no_movement)
+	WRITE_FILE(S["helplessness_clumsy"], helplessness_clumsy)
+	WRITE_FILE(S["helplessness_nearsighted"], helplessness_nearsighted)
+	WRITE_FILE(S["helplessness_hidden_face"], helplessness_hidden_face)
+	WRITE_FILE(S["helplessness_mute"], helplessness_mute)
+	WRITE_FILE(S["helplessness_immobile_arms"], helplessness_immobile_arms)
+	WRITE_FILE(S["helplessness_clothing_jumpsuit"], helplessness_clothing_jumpsuit)
+	WRITE_FILE(S["helplessness_clothing_misc"], helplessness_clothing_misc)
+	WRITE_FILE(S["helplessness_clothing_back"], helplessness_clothing_back)
+	WRITE_FILE(S["helplessness_no_buckle"], helplessness_no_buckle)
+	WRITE_FILE(S["stuckage"], stuckage)
+	WRITE_FILE(S["chair_breakage"], chair_breakage)
+	WRITE_FILE(S["fatness_vulnerable"], fatness_vulnerable)
+	WRITE_FILE(S["extreme_fatness_vulnerable"], extreme_fatness_vulnerable)
+	WRITE_FILE(S["blueberry_inflation"], blueberry_inflation)
 	return 1
 
 
@@ -367,6 +400,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["skin_tone"]			>> skin_tone
 	S["hair_style_name"]	>> hair_style
 	S["facial_style_name"]	>> facial_hair_style
+	S["voice"]				>> voice
 	// GS13: Hair gradients from Skyrat
 	S["grad_style"]			>> grad_style
 	S["grad_color"]			>> grad_color
@@ -633,6 +667,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["skin_tone"]			, skin_tone)
 	WRITE_FILE(S["hair_style_name"]	, hair_style)
 	WRITE_FILE(S["facial_style_name"]	, facial_hair_style)
+	WRITE_FILE(S["voice"]				, voice)
 	// GS13: Hair gradients from Skyrat
 	WRITE_FILE(S["grad_style"]			, grad_style)
 	WRITE_FILE(S["grad_color"]			, grad_color)

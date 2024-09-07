@@ -33,6 +33,10 @@
 		max_fat += C.rating * 2
 
 /obj/machinery/power/adipoelectric_generator/process()
+	if(!occupant)
+		src.visible_message("<span class='alert'>The [src] buzzes. It needs someone inside.</span>")
+		playsound(src, 'sound/machines/buzz-two.ogg', 50)
+		return PROCESS_KILL
 	if(occupant:fatness_real > 0 && powernet && anchored && (emp_timer < world.time))
 		active = TRUE
 		add_avail(conversion_rate * laser_modifier * max_fat)
@@ -54,6 +58,7 @@
 	if(!(stat & (BROKEN|NOPOWER)))
 		emp_timer = world.time + 600
 		if(occupant)
+			src.visible_message("<span class='alert'>The [src] buzzes and expels anyone inside!.</span>")
 			open_machine()
 
 /obj/machinery/power/adipoelectric_generator/attackby(obj/item/P, mob/user, params)
@@ -96,12 +101,15 @@
 
 /obj/machinery/power/adipoelectric_generator/open_machine()
 	. = ..()
+	STOP_PROCESSING(SSobj, src)
 
 /obj/machinery/power/adipoelectric_generator/close_machine()
 	. = ..()
 	if(occupant && anchored && !panel_open)
 		add_fingerprint(occupant)
+		START_PROCESSING(SSobj, src)
 	else
+		src.visible_message("<span class='alert'>[src] needs to be anchored to a working wire and have a person going inside!</span>")
 		open_machine()
 
 /obj/machinery/power/adipoelectric_generator/update_icon()
@@ -130,6 +138,13 @@
 /obj/machinery/power/adipoelectric_generator/Destroy()
 	QDEL_NULL(soundloop)
 	. = ..()
+
+/obj/machinery/power/adipoelectric_generator/examine(mob/user)
+	. = ..()
+	if(is_operational())
+		. += "<span class='notice'>[src]'s show it can produce <b>[conversion_rate * laser_modifier]W</b> per adipose unit, taking in <b>[max_fat]</b> max each time.</span>"
+	else
+		. += "<span class='notice'><b>[src]'s display is currently offline.</b></span>"
 
 /obj/item/circuitboard/machine/power/adipoelectric_generator
 	name = "Adipoelectric Generator (Machine Board)"

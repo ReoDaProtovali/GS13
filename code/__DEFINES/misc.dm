@@ -161,6 +161,7 @@ GLOBAL_LIST_EMPTY(bloody_footprints_cache)
 #define BLOOD_STATE_OIL				"oil"
 #define BLOOD_STATE_NOT_BLOODY		"no blood whatsoever"
 #define BLOOD_AMOUNT_PER_DECAL		20
+#define BLOOD_STATE_JUICE			"juice"
 
 //Blood Decal Colors
 #define BLOOD_COLOR_HUMAN			"#dc0000"
@@ -171,6 +172,7 @@ GLOBAL_LIST_EMPTY(bloody_footprints_cache)
 #define BLOOD_COLOR_LIZARD			"#db004D"
 #define BLOOD_COLOR_UNIVERSAL		"#db3300"
 #define BLOOD_COLOR_BUG				"#a37c0f"
+#define BLOOD_COLOR_JUICE			"#0004ff"
 
 
 //suit sensors: sensor_mode defines
@@ -527,4 +529,8 @@ GLOBAL_LIST_INIT(lighter_reskins, list(ZIPPO_SKIN_PLAIN = "plain", ZIPPO_SKIN_DA
 #define FATTENING_TYPE_WEAPON "weapon"
 #define FATTENING_TYPE_MAGIC "magic"
 #define FATTENING_TYPE_VIRUS "virus"
-#define FATTENING_TYPE_WEIGHT_LOSS "weight_loss" 
+#define FATTENING_TYPE_NANITES "nanites"
+#define FATTENING_TYPE_RADIATIONS "radiations"
+#define FATTENING_TYPE_WEIGHT_LOSS "weight_loss"
+
+#define FATNESS_TO_WEIGHT_RATIO 0.25

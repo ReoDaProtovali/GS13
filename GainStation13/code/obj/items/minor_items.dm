@@ -46,7 +46,8 @@
 	icon_state = "gum_wrapped"
 	desc = "Doesn't cause anything more than some discoloration... probably."
 	trash = /obj/item/trash/blueberry_gum
-	list_reagents = list(/datum/reagent/blueberry_juice = 0.5)
+	list_reagents = list(/datum/reagent/blueberry_juice = 50)
+	bitesize = 5
 	filling_color = "#001aff"
 	tastes = list("blueberry gum" = 1)
 	foodtype = FRUIT
@@ -65,6 +66,11 @@
 	desc = "A single use autosurgeon that contains a turbo version of the nutriment pump. A screwdriver can be used to remove it, but implants can't be placed back in."
 	uses = 1
 	starting_organ = /obj/item/organ/cyberimp/chest/nutriment/turbo
+
+/obj/item/autosurgeon/fat_mobility
+	desc = "A single use autosurgeon that contains a mobility nanite core. A screwdriver can be used to remove it, but implants can't be placed back in."
+	uses = 1
+	starting_organ = /obj/item/organ/cyberimp/chest/mobility
 
 //fast food restaurant - closed / open signs
 /obj/item/holosign_creator/restaurant
@@ -157,3 +163,9 @@
 	else
 		icon_state = "sign_closed"
 		desc = "A sign that reads 'closed'"
+
+/obj/item/trash/odd_disk
+	name = "odd disk"
+	icon = 'icons/obj/module.dmi'
+	icon_state = "datadisk0"
+	desc = "A dusty disk, desconstruction will be needed to recover data."
